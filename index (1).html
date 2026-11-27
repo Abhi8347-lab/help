@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kavach – Phishing and Scam Checker</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"></head><body><div class="wrap">
+<header class="top"><b class="logo">Kavach</b><span>Phishing and scam checker</span><nav><a href="#scan">Scan</a><a href="#history">History</a><a href="#playbook">Scam playbook</a></nav></header>
+<h1>Paste it before you tap it.</h1>
+<p class="lead">Kavach reads links, messages and sender addresses the way a fraud analyst does, then shows exactly which words and signals gave the scam away.</p>
+<section class="scanner" id="scan">
+<div class="in">
+<div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-m="url">Link</button><button role="tab" aria-selected="false" data-m="msg">Email or SMS</button><button role="tab" aria-selected="false" data-m="mail">Sender</button></div>
+<label for="inp" id="lbl">Link to check</label>
+<textarea id="inp" spellcheck="false"></textarea>
+<div class="row"><button class="go" id="go">Scan now</button><span class="note" style="margin:0">Samples:</span><span id="samples" class="row" style="margin:0"></span></div>
+<p class="note">The analysis runs in your browser. Nothing you paste is uploaded.</p>
+</div>
+<div class="out" id="out" aria-live="polite"><p class="empty">Results appear here. Load a sample to watch a scam get picked apart, signal by signal.</p></div>
+</section>
+<section class="two">
+<div class="card" id="history"><h2>Your scans</h2><div class="stats"><div><b id="sTot">0</b><span>scanned</span></div><div><b id="sBad">0</b><span>flagged</span></div></div><ul class="h" id="hist"></ul><div class="row"><button class="mini" id="clr">Clear history</button></div></div>
+<div class="card" id="playbook"><h2>Scam playbook</h2>
+<details><summary>“Your account will be blocked” (KYC and bank alerts)</summary><p>Banks never ask you to update KYC through a link in an SMS, and never ask for your OTP, PIN or CVV. The deadline is there to stop you thinking.</p></details>
+<details><summary>Parcel held at customs</summary><p>A small “redelivery fee” on a lookalike courier site is a card-theft page. Check the order in the courier’s real app instead.</p></details>
+<details><summary>Lottery, prize and cashback wins</summary><p>You cannot win a draw you never entered. Any fee to “release” a prize is the scam itself.</p></details>
+<details><summary>Work-from-home and task jobs</summary><p>Pay for liking videos or completing tasks, often via Telegram, starts small and ends with a deposit you never get back.</p></details>
+<details><summary>UPI collect requests and QR codes</summary><p>You scan a QR to pay, never to receive. If someone says a code will send you money, it will take money.</p></details>
+<details><summary>Fake tech support and remote access</summary><p>No genuine company asks you to install AnyDesk or TeamViewer so they can “fix” your bank account.</p></details>
+</div></section>
+<footer>How it works: every link and message is scored by two systems: an explainable rule engine, and machine-learning models (TF-IDF with logistic regression for text, a feature-based logistic regression for links) trained by backend/train.py. The final score blends both. Scores are an aid, not a guarantee. When in doubt, contact the organisation through its official app or number, and report fraud at cybercrime.gov.in (India: call 1930).</footer>
+</div>
+<script src="js/model.js"></script>
+<script src="js/app.js"></script></body></html>
